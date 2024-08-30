@@ -39,6 +39,7 @@ jobs:
 
     - name: Copiar configuracion
       run: |
+        cd $HOME
         cp -r ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
 
     - name: Compilar
