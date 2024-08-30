@@ -10,6 +10,8 @@ on:
     tags:
       - 'v*'
   pull_request:
+    paths:
+    - './'
     branches:
       - main
 
@@ -40,7 +42,7 @@ jobs:
     - name: Copiar configuracion
       run: |
         cd $HOME
-        cp -r ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
+        cp -r ./ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
 
     - name: Compilar
       run: |
@@ -50,7 +52,6 @@ jobs:
         export IDF_TARGET=esp32s3
         cd ports/esp32/
         make BOARD=ESP32_GENERIC_S3_N16R8 submodules
-        meka BOARD=ESP32_GENERIC_S3_N16R8 clean
         make BOARD=ESP32_GENERIC_S3_N16R8
     
     - name: Mover binarios
