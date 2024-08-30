@@ -1,4 +1,4 @@
-name: ESP32 MicroPython
+name: ESP 32 MicroPython
 
 permissions:
   contents: write
