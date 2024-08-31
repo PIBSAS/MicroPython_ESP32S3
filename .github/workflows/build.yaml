@@ -47,7 +47,6 @@ jobs:
 
     - name: Compilar
       run: |
-        cd
         cd micropython/
         make -C mpy-cross
         export IDF_TARGET=esp32s3
