@@ -38,12 +38,12 @@ jobs:
         python3 idf_tools.py install cmake
         cd ..
         ./install.sh esp32s3
-        . ./export.sh
-        echo ". $PWD/export.sh" >> $GITHUB_ENV
+        # . ./export.sh
+        # echo ". $PWD/export.sh" >> $GITHUB_ENV
         cd
 
-    - name: Configurar entorno de ESP-IDF
-      run: . $GITHUB_ENV
+   # - name: Configurar entorno de ESP-IDF
+   #   run: . $GITHUB_ENV
 
     - name: Copiar configuracion
       run: |
@@ -51,6 +51,7 @@ jobs:
 
     - name: Compilar
       run: |
+        source esp/esp-idf/export.sh
         cd micropython/
         make -C mpy-cross
         export IDF_TARGET=esp32s3
