@@ -39,7 +39,11 @@ jobs:
         cd ..
         ./install.sh esp32s3
         . ./export.sh
+        echo ". $PWD/export.sh" >> $GITHUB_ENV
         cd
+
+    - name: Configurar entorno de ESP-IDF
+      run: . $GITHUB_ENV
 
     - name: Copiar configuracion
       run: |
@@ -51,8 +55,9 @@ jobs:
         make -C mpy-cross
         export IDF_TARGET=esp32s3
         cd ports/esp32/
-        make BOARD=ESP32_GENERIC_S3_N16R8 submodules
-        make BOARD=ESP32_GENERIC_S3_N16R8
+        idf.py -D MICROPY_BOARD=ESP32_GENERIC_S3_N16R8 -D MICROPY_BOARD_DIR="$GITHUB_WORKSPACE/micropython/ports/esp32/boards/ESP32_GENERIC_S3_N16R8" -B build-ESP32_GENERIC_S3_N16R8 build
+        # make BOARD=ESP32_GENERIC_S3_N16R8 submodules
+        # make BOARD=ESP32_GENERIC_S3_N16R8
     
     - name: Mover binarios
       run: |
