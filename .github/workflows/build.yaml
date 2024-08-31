@@ -23,7 +23,6 @@ jobs:
       
     - name: Clonar Micropython
       run: git clone --recurse-submodules https://github.com/micropython/micropython.git
-      working-directory: espbuild
       
     - name: Instalar dependencias
       run: |
