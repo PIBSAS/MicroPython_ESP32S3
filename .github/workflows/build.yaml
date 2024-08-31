@@ -10,8 +10,6 @@ on:
     tags:
       - 'v*'
   pull_request:
-    paths:
-    - './'
     branches:
       - main
 
@@ -20,6 +18,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Clonar el repositorio
+      uses: actions/checkout@v3
+      
     - name: Clonar Micropython
       run: git clone --recurse-submodules https://github.com/micropython/micropython.git
       working-directory: espbuild
@@ -39,10 +40,11 @@ jobs:
         cd ..
         ./install.sh esp32s3
         . ./export.sh
+        cd
 
     - name: Copiar configuracion
       run: |
-        cp -r espbuild/ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
+        cp -r ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
 
     - name: Compilar
       run: |
