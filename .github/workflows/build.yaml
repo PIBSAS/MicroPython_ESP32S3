@@ -22,7 +22,8 @@ jobs:
     steps:
     - name: Clonar Micropython
       run: git clone --recurse-submodules https://github.com/micropython/micropython.git
-
+      working-directory: espbuild
+      
     - name: Instalar dependencias
       run: |
        sudo apt update && sudo apt upgrade -y
@@ -41,8 +42,7 @@ jobs:
 
     - name: Copiar configuracion
       run: |
-        cd $HOME
-        cp -r ./ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
+        cp -r espbuild/ESP32_GENERIC_S3_N16R8 micropython/ports/esp32/boards/
 
     - name: Compilar
       run: |
