@@ -86,10 +86,11 @@ jobs:
       uses: softprops/action-gh-release@v2.0.8
       with:
         tag_name: ${{ env.TAG_NAME }}
-        name: "MicroPython ESP32 S3 WROOM 1 N16R8 plus Smartconfig Release version ${{ env.MPY_VERSION }} (Build ${{ env.TAG_NAME }})"
-        body: "Automated release for MicroPython with SmartConfig."
+        name: "MicroPython for ESP32 S3 Release version ${{ env.MPY_VERSION }} (Build ${{ env.TAG_NAME }})"
+        body: "Automated release for MicroPython."
         draft: false
         prerelease: false
+        files: ./artifacts/*
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
