@@ -82,8 +82,8 @@ jobs:
       id: tag
       run: echo "TAG_NAME=release-$(date +'%Y%m%d-%H%M')" >> $GITHUB_ENV
 
-    - name: Create GitHub Release
-      uses: softprops/action-gh-release@latest
+    - name: GH Release
+      uses: softprops/action-gh-release@v2.0.8
       with:
         tag_name: ${{ env.TAG_NAME }}
         name: "MicroPython ESP32 S3 WROOM 1 N16R8 plus Smartconfig Release version ${{ env.MPY_VERSION }} (Build ${{ env.TAG_NAME }})"
