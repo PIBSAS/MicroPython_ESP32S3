@@ -161,7 +161,7 @@ jobs:
           
           ### Put ESP32 S3 N16R8 in BOOTLOADER MODE:
          - With USB cable on USB COM Port, press BOOT button then RST button, release RST, then release BOOT button. Or unplug, press BOOT button meanwhile you plug in the usb cable to PC or SBC like a Raspberry Pi.
-          - Alternative: Use Thonny IDE, plug your T-Display-S3, on Thonny Shell type:
+          - Alternative: Use Thonny IDE, plug your ESP32-S3, on Thonny Shell type:
           ```bash
           from machine import bootloader
           ```
