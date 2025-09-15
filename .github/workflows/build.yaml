@@ -131,7 +131,7 @@ jobs:
         body: |
           Automated release for MicroPython.
           - What we get here:
-             - ```micropython.bin, bootloader.bin and partition-table.bin```
+            - ```micropython.bin, bootloader.bin and partition-table.bin```
           
           # Instructions
           
@@ -161,7 +161,7 @@ jobs:
           ```
           
           ### Put ESP32 S3 N16R8 in BOOTLOADER MODE:
-         - With USB cable on USB COM Port, press BOOT button then RST button, release RST, then release BOOT button. Or unplug, press BOOT button meanwhile you plug in the usb cable to PC or SBC like a Raspberry Pi.
+          - With USB cable on USB COM Port, press BOOT button then RST button, release RST, then release BOOT button. Or unplug, press BOOT button meanwhile you plug in the usb cable to PC or SBC like a Raspberry Pi.
           - Alternative: Use Thonny IDE, plug your ESP32-S3, on Thonny Shell type:
           ```bash
           from machine import bootloader
